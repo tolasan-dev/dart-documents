@@ -15,15 +15,12 @@ class Student extends Person {
 
   @override
   void setTextData(String textData) {
-    if (textData.isEmpty) throw Exception('data is empty');
     var parts = textData.split('/');
     if (parts.length < 3) throw Exception("data is not enough");
     try {
-      int a = int.parse(parts[1]);
-      double s = double.parse(parts[2]);
       name = parts[0].trim();
-      age = a;
-      score = s;  
+      age = int.parse(parts[1]);
+      score = double.parse(parts[2]);
     } catch (e) {
       throw Exception("Invalid age or score>$e");
     }

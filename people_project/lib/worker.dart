@@ -1,17 +1,17 @@
 import 'package:people_file/person.dart';
 
-class Student extends Person {
-  double score;
-  Student([super.name = '', super.age = 0, this.score = 0.0]);
+class Worker extends Person {
+  String factory;
+  Worker([super.name = "", super.age = 0, this.factory = ""]);
 
   @override
-  String get info => '${super.info}, score:$score';
+  String get info => '${super.info}, factory:$factory';
   @override
-  PersonType get type => PersonType.student;
+  PersonType get type => PersonType.worker;
   @override
-  Person clone() => Student(name, age, score);
+  Person clone() => Worker(name, age, factory);
   @override
-  String getTextData() => '${super.getTextData()}/$score';
+  String getTextData() => '${super.getTextData()}/$factory';
 
   @override
   void setTextData(String textData) {
@@ -20,12 +20,11 @@ class Student extends Person {
     if (parts.length < 3) throw Exception("data is not enough");
     try {
       int a = int.parse(parts[1]);
-      double s = double.parse(parts[2]);
       name = parts[0].trim();
       age = a;
-      score = s;  
+      factory = parts[2].trim();
     } catch (e) {
-      throw Exception("Invalid age or score>$e");
+      throw Exception("Invalid age>$e");
     }
   }
 }

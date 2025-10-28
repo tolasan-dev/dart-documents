@@ -20,7 +20,7 @@ class PeopleFile {
         var per = PersonText.toPerson(line);
         if (per != null) people.add(per);
       } catch (e) {
-        // skip invalid lines or log errors
+        
       }
     }
     return people;
